@@ -2,6 +2,7 @@ import pygame
 import random
 import time
 import os
+from pathlib import Path
 
 pygame.init()
 screen_width = 1000
@@ -9,10 +10,10 @@ screen_height = 600
 screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 cwd = os.getcwd()
-music = pygame.mixer.music.load(cwd + '\\Game Files\\Sounds\\background_song.mp3') 
-hit = pygame.mixer.Sound(cwd + '\\Game Files\\Sounds\\270326__littlerobotsoundfactory__hit-01.wav')
-pickup = pygame.mixer.Sound(cwd + '\\Game Files\\Sounds\\347172__davidsraba__coin-pickup-sound.wav')
-gameover_sound = pygame.mixer.Sound(cwd + '\\Game Files\\Sounds\\253886__themusicalnomad__negative-beeps.wav')
+music = pygame.mixer.music.load(cwd + str(Path("/Game Files/Sounds/background_song.mp3"))) 
+hit = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/270326__littlerobotsoundfactory__hit-01.wav")))
+pickup = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/347172__davidsraba__coin-pickup-sound.wav")))
+gameover_sound = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/253886__themusicalnomad__negative-beeps.wav")))
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -46,61 +47,61 @@ def quick_load(img):
 
 
 # Images
-border_img = quick_load(cwd + '\\Game Files\\Images\\Borders\\andrea_border_active.png')
-small_icon = quick_load(cwd + '\\Game Files\\Images\\Etc\\small_icon.png')
-heart_img = quick_load(cwd + '\\Game Files\\Images\\Etc\\heart.png')
-game_over_text = quick_load(cwd + '\\Game Files\\Images\\Etc\\gameover.png')
-main_background = quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\char_select.png')
-main_menu_background = quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\main_menu_bg.png')
-golden_border = quick_load(cwd + '\\Game Files\\Images\\Borders\\gold_border.png')
-htp_background = quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\htp.png')
-about_bg = quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\about.png')
+border_img = quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_active.png")))
+small_icon = quick_load(cwd + str(Path("/Game Files/Images/Etc/small_icon.png")))
+heart_img = quick_load(cwd + str(Path("/Game Files/Images/Etc/heart.png")))
+game_over_text = quick_load(cwd + str(Path("/Game Files/Images/Etc/gameover.png")))
+main_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/char_select.png")))
+main_menu_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/main_menu_bg.png")))
+golden_border = quick_load(cwd + str(Path("/Game Files/Images/Borders/gold_border.png")))
+htp_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/htp.png")))
+about_bg = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/about.png")))
 # Philip Images
 philip = {
-    'char': quick_load(cwd + '\\Game Files\\Images\\Leads\\philip.png'),
-    'obstacle': quick_load(cwd + '\\Game Files\\Images\\Obstacles\\philip_obstacle.png'),
-    'catch': quick_load(cwd + '\\Game Files\\Images\\Catch\\philip_catch.png'),
-    'background': quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\philip_bg.png'),
-    'inactive': quick_load(cwd + '\\Game Files\\Images\\Borders\\philip_border_inactive.png'),
-    'active': quick_load(cwd + '\\Game Files\\Images\\Borders\\philip_border_active.png')
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/philip.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/philip_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/philip_catch.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/philip_bg.png"))),
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_active.png")))
 }
 # Jessica Images
 jessica = {
-    'char': quick_load(cwd + '\\Game Files\\Images\\Leads\\jessica.png'),
-    'obstacle': quick_load(cwd + '\\Game Files\\Images\\Obstacles\\jessica_obstacle.png'),
-    'catch': quick_load(cwd + '\\Game Files\\Images\\Catch\\jessica_catch.png'),
-    'background': quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\jessica_bg.png'),
-    'inactive': quick_load(cwd + '\\Game Files\\Images\\Borders\\jessica_border_inactive.png'),
-    'active': quick_load(cwd + '\\Game Files\\Images\\Borders\\jessica_border_active.png')
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/jessica.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/jessica_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/jessica_catch.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/jessica_bg.png"))),
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_active.png")))
 }
 # Andrea Images
 andrea = {
-    'char': quick_load(cwd + '\\Game Files\\Images\\Leads\\andrea.png'),
-    'obstacle': quick_load(cwd + '\\Game Files\\Images\\Obstacles\\andrea_obstacle.png'),
-    'catch': quick_load(cwd + '\\Game Files\\Images\\Catch\\andrea_catch.png'),
-    'background': quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\andrea_bg.png'),
-    'inactive': quick_load(cwd + '\\Game Files\\Images\\Borders\\andrea_border_inactive.png'),
-    'active': quick_load(cwd + '\\Game Files\\Images\\Borders\\andrea_border_active.png')
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/andrea.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/andrea_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/andrea_catch.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/andrea_bg.png"))),
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_active.png")))
 }
 # Eric Images
 eric = {
-    'char': quick_load(cwd + '\\Game Files\\Images\\Leads\\eric.png'),
-    'obstacle': quick_load(cwd + '\\Game Files\\Images\\Obstacles\\eric_obstacle.png'),
-    'catch': quick_load(cwd + '\\Game Files\\Images\\Catch\\eric_catch.png'),
-    'background': quick_load(cwd + '\\Game Files\\Images\\Backgrounds\\eric_bg.png'),
-    'inactive': quick_load(cwd + '\\Game Files\\Images/Borders/eric_border_inactive.png'),
-    'active': quick_load(cwd + '\\Game Files/Images/Borders/eric_border_active.png')
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/eric.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/eric_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/eric_catch.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/eric_bg.png"))),
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_active.png")))
 }
 # Button Images
 buttons = {
-    'PLAY AGAIN': [quick_load(cwd + '\\Game Files/Buttons/play_again_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/play_again_active.png')],
-    'QUIT': [quick_load(cwd + '\\Game Files/Buttons/quit_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/quit_active.png')],
-    'MENU': [quick_load(cwd + '\\Game Files/Buttons/menu_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/menu_active.png')],
-    'START': [quick_load(cwd + '\\Game Files/Buttons/start_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/start_active.png'), quick_load(cwd + '\\Game Files/Buttons/start_disabled.png')],
-    'MAIN START': [quick_load(cwd + '\\Game Files/Buttons/main_start_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/main_start_active.png')],
-    'HTP': [quick_load(cwd + '\\Game Files/Buttons/htp_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/htp_active.png')],
-    'ABOUT': [quick_load(cwd + '\\Game Files/Buttons/about_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/about_active.png')],
-    'BACK': [quick_load(cwd + '\\Game Files/Buttons/cancel_inactive.png'), quick_load(cwd + '\\Game Files/Buttons/cancel_active.png')]
+    'PLAY AGAIN': [quick_load(cwd + str(Path("/Game Files/Buttons/play_again_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/play_again_active.png")))],
+    'QUIT': [quick_load(cwd + str(Path("/Game Files/Buttons/quit_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/quit_active.png")))],
+    'MENU': [quick_load(cwd + str(Path("/Game Files/Buttons/menu_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/menu_active.png")))],
+    'START': [quick_load(cwd + str(Path("/Game Files/Buttons/start_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/start_active.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/start_disabled.png")))],
+    'MAIN START': [quick_load(cwd + str(Path("/Game Files/Buttons/main_start_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/main_start_active.png")))],
+    'HTP': [quick_load(cwd + str(Path("/Game Files/Buttons/htp_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/htp_active.png")))],
+    'ABOUT': [quick_load(cwd + str(Path("/Game Files/Buttons/about_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/about_active.png")))],
+    'BACK': [quick_load(cwd + str(Path("/Game Files/Buttons/cancel_inactive.png"))), quick_load(cwd + str(Path("/Game Files/Buttons/cancel_active.png")))]
 }
 
 person = None
@@ -116,7 +117,7 @@ def quitgame():
 
 
 def update_score(score):
-    font = pygame.font.Font(cwd + '\\Game Files/Fonts/fipps.otf', 40)
+    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     color = black
     text_surf, text_rect = text_objects(str(score), font, color)
     text_rect.center = (screen_width // 2, 60)
