@@ -115,7 +115,7 @@ def quitgame():
     pygame.quit()
     quit()
 
-
+# Functions that place that thing on screen at that location
 def update_score(score):
     font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     color = black
@@ -307,7 +307,9 @@ def game():
     character_x = (screen_width-character_width)//2
     character_y = screen_height - character_height
     lives = 3
+    # speed of catching sprite
     speed = 15
+    
     score = 0
 
     num_obstacles = 3
@@ -317,11 +319,13 @@ def game():
 
     catch_x = random.randrange(0, screen_width)
     catch_y = -catch_height - random.randrange(0, 100)
+    # speed of desired catches
     catch_speed = 7
 
     for i in range(num_obstacles):
         obstacle_x.append(random.randrange(0, screen_width))
         obstacle_y.append(-(obstacle_height + random.randrange(100, 200)))
+        #  initial obstacles' speed
         obstacle_speed.append(random.randrange(7, 13))
 
     game_over = False
@@ -329,6 +333,8 @@ def game():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quitgame()
+
+        # control character movement
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_LEFT] or pressed[pygame.K_a] and character_x > 0:
             character_x -= speed
@@ -348,11 +354,14 @@ def game():
         update_score(score)
 
         for j in range(num_obstacles):
+            # only renders whats on screen
             if obstacle_y[j] > screen_height:
                 obstacle_y[j] = -obstacle_height
                 obstacle_x[j] = random.randrange(0, screen_width)
+                # speed of all obstacles after initial
                 obstacle_speed[j] = random.randrange(7, 10)
-
+            
+            # hit obstacle scenario
             if character_y < obstacle_y[j] + obstacle_height-30:
                 if character_x <= obstacle_x[j] <= character_x + character_width or character_x <= obstacle_x[j] + obstacle_width <= character_x + character_width:
                     hit.play()
@@ -364,11 +373,13 @@ def game():
                     elif lives == 1:
                         crash()
 
+        #displays number of lives as hearts
         tmp = 55
         for z in range(lives):
             heart(screen_width-tmp, 5)
             tmp += 55
 
+        # character hits collectible scenario
         if character_y < catch_y+30:
             if character_x <= catch_x <= character_x + character_width or character_x <= catch_x + catch_width <= character_x + character_width:
                 pickup.play()
