@@ -130,6 +130,13 @@ def update_score(score):
     text_rect.center = (screen_width // 2, 60)
     screen.blit(text_surf, text_rect)
 
+# NEW FUNCTION
+def update_points(points):
+    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
+    color = black
+    text_surf, text_rect = text_objects( "Points: " + str(points), font, color)
+    text_rect.center = (screen_width-100, screen_height-50)
+    screen.blit(text_surf, text_rect)
 
 def character(x, y):
     screen.blit(character_img, (x, y))
@@ -294,6 +301,7 @@ def menu():
 
         screen.blit(main_background, (0, 0))
 
+        # need to add another button type that is a blank with a price tag
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
         if points > BENCHMARK0:
             button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
