@@ -176,12 +176,13 @@ def update_plant_data():
             sensor_type = result[0]
             sensor_value = float(result[1])
 
-            if(sensor_type == "uv" and sensor_value >= 50):
+            if(sensor_type == "uv" and sensor_value >= 30):
                 points += 1
             elif(sensor_type == "soilMoisture" and sensor_value >= 600 and sensor_value < 800):
                 points += 1
             else:
-                points -= 1
+                if(points > 0):
+                    points -= 1
 
             print(str(timestamp) + "," + sensor_type + "," + str(sensor_value))
             
