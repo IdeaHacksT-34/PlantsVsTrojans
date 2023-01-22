@@ -15,6 +15,13 @@ hit = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/270326__littlerobots
 pickup = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/347172__davidsraba__coin-pickup-sound.wav")))
 gameover_sound = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/253886__themusicalnomad__negative-beeps.wav")))
 
+# NEW VARIABLES BY VINH
+    # will track score between games to enable unlockables
+points = 0; 
+BENCHMARK0 = 50;
+BENCHMARK1 = 100;
+BENCHMARK2 = 150;
+
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
 hit.set_volume(0.30)
@@ -288,9 +295,12 @@ def menu():
         screen.blit(main_background, (0, 0))
 
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
-        button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
-        button(philip['inactive'], philip['active'], 755, 100, set_philip)
-        button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
+        if points > BENCHMARK0:
+            button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
+        if points > BENCHMARK1:
+            button(philip['inactive'], philip['active'], 755, 100, set_philip)
+        if points > BENCHMARK2:
+            button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
 
         if chosen_char:
             button(buttons['START'][0], buttons['START'][1], 377, 510, game)
