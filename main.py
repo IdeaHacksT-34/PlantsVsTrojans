@@ -193,11 +193,6 @@ def update_plant_data():
                 first = True
                 last_timestamp += update_time
 
-
-
-
-
-
 # NEW FUNCTION
 def update_points(points, position):
     x = 0
