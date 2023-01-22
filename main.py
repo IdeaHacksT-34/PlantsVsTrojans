@@ -139,7 +139,7 @@ buttons = {
 person = None
 
 # Other Stuff
-pygame.display.set_caption('2020 Boeing HSI Game')
+pygame.display.set_caption('IDEA Hacks 2023 - Plants vs Trojans')
 pygame.display.set_icon(sun_icon)
 
 
