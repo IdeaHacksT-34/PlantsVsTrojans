@@ -17,12 +17,12 @@ gameover_sound = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/253886__t
 
 # Import previous score (points)
 points_file_path = Path("./points_file.txt")
-points = 200
+points = 0
 if points_file_path.is_file():
     points_file = open(points_file_path)
     points_file_list = points_file.readlines()
     points = int(points_file_list[0])
-    points = 200
+
     points_file.close()
 print(points)
 # NEW VARIABLES BY VINH
@@ -31,6 +31,9 @@ print(points)
 BENCHMARK0 = 50
 BENCHMARK1 = 100
 BENCHMARK2 = 150
+
+LOWERSPEED = 4
+UPPERSPEED = 9
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -200,15 +203,20 @@ def update_variable(char):
 
 
 def set_char(char):
-    global chosen_char
+    global chosen_char, dif
     chosen_char = True
+    dif = 0
     if char == leaf:
+        dif = 3
         update_variable(leaf)
     elif char == lotus:
+        dif = 1
         update_variable(lotus)
     elif char == sunflower:
+        dif = 0
         update_variable(sunflower)
     elif char == piranha:
+        dif = 2
         update_variable(piranha)
 
 
@@ -228,28 +236,27 @@ def button(inactive_img, active_img, x, y, action=None):
         screen.blit(golden_border, border_coords)
 
 # These functions place the character we control on the field
-def set_leaf():
-    global border_coords
-    set_char(leaf)
-    border_coords = (755, 150)
 
+def set_sunflower():
+    global border_coords
+    set_char(sunflower)
+    border_coords = (20, 150)
 
 def set_lotus():
     global border_coords
     set_char(lotus)
     border_coords = (265, 150)
 
-
 def set_piranha():
     global border_coords
     set_char(piranha)
     border_coords = (510, 150)
-
-
-def set_sunflower():
+    
+def set_leaf():
     global border_coords
-    set_char(sunflower)
-    border_coords = (20, 150)
+    set_char(leaf)
+    border_coords = (755, 150)
+
 
 # Lose all lives scenario
 def crash():
@@ -346,7 +353,7 @@ def menu():
 
 
 def game():
-    global gameover
+    global gameover, dif
     pygame.event.clear()
     character_x = (screen_width-character_width)//2
     character_y = screen_height - character_height
@@ -370,7 +377,7 @@ def game():
         obstacle_x.append(random.randrange(0, screen_width))
         obstacle_y.append(-(obstacle_height + random.randrange(100, 200)))
         #  initial obstacles' speed
-        obstacle_speed.append(random.randrange(7, 13))
+        obstacle_speed.append(random.randrange(LOWERSPEED + dif, UPPERSPEED + dif))
 
     game_over = False
     while not game_over:
@@ -405,7 +412,7 @@ def game():
                 obstacle_y[j] = -obstacle_height
                 obstacle_x[j] = random.randrange(0, screen_width)
                 # speed of all obstacles after initial
-                obstacle_speed[j] = random.randrange(7, 10)
+                obstacle_speed[j] = random.randrange(LOWERSPEED + dif, UPPERSPEED + dif)
             
             # hit obstacle scenario
             if character_y < obstacle_y[j] + obstacle_height-30:
@@ -414,7 +421,7 @@ def game():
                     if lives > 1:
                         obstacle_x[j] = random.randrange(0, screen_width)
                         obstacle_y[j] = -obstacle_height
-                        obstacle_speed[j] = random.randrange(7, 10)
+                        obstacle_speed[j] = random.randrange(LOWERSPEED + dif, UPPERSPEED + dif)
                         lives -= 1
                     elif lives == 1:
                         crash()
