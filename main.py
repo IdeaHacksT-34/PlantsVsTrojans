@@ -195,7 +195,7 @@ def button(inactive_img, active_img, x, y, action=None):
     if person != None:
         screen.blit(golden_border, border_coords)
 
-
+# These functions place the character we control on the field
 def set_philip():
     global border_coords
     set_char(philip)
@@ -219,7 +219,7 @@ def set_eric():
     set_char(eric)
     border_coords = (20, 100)
 
-
+# Lose all lives scenario
 def crash():
     global person
     person = None
@@ -237,7 +237,7 @@ def crash():
         pygame.display.update()
         clock.tick(15)
 
-
+# About screen
 def about():
     about = True
     while about:
@@ -249,7 +249,7 @@ def about():
         pygame.display.update()
         clock.tick(15)
 
-
+# How to Play Screen
 def htp():
     htp = True
     while htp:
@@ -280,7 +280,7 @@ def main_menu():
         pygame.display.update()
         clock.tick(15)
 
-
+# Select character screen
 def menu():
     time.sleep(0.30)
     global gameover, chosen_char, person
