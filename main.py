@@ -3,6 +3,8 @@ import random
 import time
 import os
 from pathlib import Path
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 pygame.init()
 screen_width = 1000
@@ -25,6 +27,13 @@ if points_file_path.is_file():
 
     points_file.close()
 print(points)
+
+#webserver access setup
+dc = DesiredCapabilities.CHROME
+dc['goog:loggingPrefs'] = { 'browser':'ALL' }
+driver = webdriver.Chrome(desired_capabilities=dc)
+driver.get("http://192.168.1.126")
+
 # NEW VARIABLES BY VINH
     # will track score between games to enable unlockables
 
@@ -428,6 +437,5 @@ def game():
 
         pygame.display.update()
         clock.tick(60)
-
 
 main_menu()
