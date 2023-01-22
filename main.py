@@ -25,6 +25,12 @@ if points_file_path.is_file():
 
     points_file.close()
 print(points)
+# NEW VARIABLES BY VINH
+    # will track score between games to enable unlockables
+points = 0; 
+BENCHMARK0 = 50;
+BENCHMARK1 = 100;
+BENCHMARK2 = 150;
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -205,7 +211,7 @@ def button(inactive_img, active_img, x, y, action=None):
     if person != None:
         screen.blit(golden_border, border_coords)
 
-
+# These functions place the character we control on the field
 def set_philip():
     global border_coords
     set_char(philip)
@@ -229,7 +235,7 @@ def set_eric():
     set_char(eric)
     border_coords = (20, 100)
 
-
+# Lose all lives scenario
 def crash():
     global person
     person = None
@@ -247,7 +253,7 @@ def crash():
         pygame.display.update()
         clock.tick(15)
 
-
+# About screen
 def about():
     about = True
     while about:
@@ -259,7 +265,7 @@ def about():
         pygame.display.update()
         clock.tick(15)
 
-
+# How to Play Screen
 def htp():
     htp = True
     while htp:
@@ -290,7 +296,7 @@ def main_menu():
         pygame.display.update()
         clock.tick(15)
 
-
+# Select character screen
 def menu():
     time.sleep(0.30)
     global gameover, chosen_char, person
@@ -305,9 +311,12 @@ def menu():
         screen.blit(main_background, (0, 0))
 
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
-        button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
-        button(philip['inactive'], philip['active'], 755, 100, set_philip)
-        button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
+        if points > BENCHMARK0:
+            button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
+        if points > BENCHMARK1:
+            button(philip['inactive'], philip['active'], 755, 100, set_philip)
+        if points > BENCHMARK2:
+            button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
 
         if chosen_char:
             button(buttons['START'][0], buttons['START'][1], 377, 510, game)
