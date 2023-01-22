@@ -40,9 +40,9 @@ driver.get("http://192.168.1.126")
 # NEW VARIABLES BY VINH
     # will track score between games to enable unlockables
 
-BENCHMARK0 = 50
-BENCHMARK1 = 100
-BENCHMARK2 = 150
+BENCHMARK0 = 10
+BENCHMARK1 = 20
+BENCHMARK2 = 30
 
 LOWERSPEED = 3
 UPPERSPEED = 8
@@ -163,7 +163,7 @@ def update_score(score):
 
 first = True
 def update_plant_data():
-    update_time = 5000
+    update_time = 2000
     global last_timestamp
     global points
     global first
@@ -394,22 +394,22 @@ def menu():
         if points > BENCHMARK0:
             button(lotus['inactive'], lotus['active'], 265, 150, set_lotus)
         else:
-            text_surf, text_rect = text_objects( "Need: " + str(50), font, color)
-            text_rect.center = (265, 150)
-            screen.blit(text_surf, text_rect)
-
-        if points > BENCHMARK1:
-            button(leaf['inactive'], leaf['active'], 755, 150, set_leaf)
-        else:
-            text_surf, text_rect = text_objects( "Need: " + str(150), font, color)
-            text_rect.center = (755, 150)
+            text_surf, text_rect = text_objects(str(BENCHMARK0), font, color)
+            text_rect.center = (265+100, 250)
             screen.blit(text_surf, text_rect)
 
         if points > BENCHMARK2:
+            button(leaf['inactive'], leaf['active'], 755, 150, set_leaf)
+        else:
+            text_surf, text_rect = text_objects(str(BENCHMARK2), font, color)
+            text_rect.center = (755+100, 250)
+            screen.blit(text_surf, text_rect)
+
+        if points > BENCHMARK1:
             button(piranha['inactive'], piranha['active'], 510, 150, set_piranha)
         else:
-            text_surf, text_rect = text_objects( "Need: " + str(100), font, color)
-            text_rect.center = (510, 150)
+            text_surf, text_rect = text_objects(str(BENCHMARK1), font, color)
+            text_rect.center = (510+100, 250)
             screen.blit(text_surf, text_rect)
 
         if chosen_char:
