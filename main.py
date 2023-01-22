@@ -143,15 +143,24 @@ def update_score(score):
     font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     color = black
     text_surf, text_rect = text_objects(str(score), font, color)
-    text_rect.center = (screen_width // 2, 60)
+    text_rect.center = ((screen_width // 2)+150, 60)
     screen.blit(text_surf, text_rect)
 
 # NEW FUNCTION
-def update_points(points):
-    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
+def update_points(points, position):
+    x = 0
+    y = 0
     color = white
+    if position==0:
+        x = (screen_width/4)+50
+        y = screen_height-50
+    else:
+        x = (screen_width/4)+50
+        y = 60
+        color = black
+    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     text_surf, text_rect = text_objects( "Points: " + str(points), font, color)
-    text_rect.center = ((screen_width/4)+50, screen_height-50)
+    text_rect.center = (x, y)
     screen.blit(text_surf, text_rect)
 
 def character(x, y):
@@ -316,7 +325,7 @@ def menu():
                 quitgame()
 
         screen.blit(main_background, (0, 0))
-        update_points(points)
+        update_points(points, 0)
 
         # need to add another button type that is a blank with a price tag
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
@@ -387,6 +396,8 @@ def game():
         catch_y += catch_speed
 
         update_score(score)
+        # NEW ADDITION
+        update_points(points, 1)
 
         for j in range(num_obstacles):
             # only renders whats on screen
