@@ -35,7 +35,7 @@ print(last_timestamp)
 dc = DesiredCapabilities.CHROME
 dc['goog:loggingPrefs'] = { 'browser':'ALL' }
 driver = webdriver.Chrome(desired_capabilities=dc)
-driver.get("http://192.168.1.126")
+driver.get("http://192.168.1.127")
 
 # NEW VARIABLES BY VINH
     # will track score between games to enable unlockables
@@ -451,9 +451,9 @@ def game():
 
         # control character movement
         pressed = pygame.key.get_pressed()
-        if pressed[pygame.K_LEFT] or pressed[pygame.K_a] and character_x > 0:
+        if (pressed[pygame.K_LEFT] or pressed[pygame.K_a]) and character_x > 0:
             character_x -= speed
-        if pressed[pygame.K_RIGHT] or pressed[pygame.K_d] and character_x + character_width < screen_width:
+        if (pressed[pygame.K_RIGHT] or pressed[pygame.K_d]) and character_x + character_width < screen_width:
             character_x += speed
 
         screen.blit(background, (0, 0))
