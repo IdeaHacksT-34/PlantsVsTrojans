@@ -27,10 +27,10 @@ if points_file_path.is_file():
 print(points)
 # NEW VARIABLES BY VINH
     # will track score between games to enable unlockables
-points = 0; 
-BENCHMARK0 = 50;
-BENCHMARK1 = 100;
-BENCHMARK2 = 150;
+
+BENCHMARK0 = 50
+BENCHMARK1 = 100
+BENCHMARK2 = 150
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -149,7 +149,7 @@ def update_score(score):
 # NEW FUNCTION
 def update_points(points):
     font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
-    color = black
+    color = white
     text_surf, text_rect = text_objects( "Points: " + str(points), font, color)
     text_rect.center = ((screen_width/4)+50, screen_height-50)
     screen.blit(text_surf, text_rect)
