@@ -87,7 +87,7 @@ philip = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/philip.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/philip_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/philip_catch.png"))),
-    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/philip_bg.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_active.png")))
 }
@@ -96,7 +96,7 @@ jessica = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/jessica.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/jessica_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/jessica_catch.png"))),
-    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/jessica_bg.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_active.png")))
 }
@@ -105,7 +105,7 @@ andrea = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/andrea.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/andrea_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/andrea_catch.png"))),
-    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/andrea_bg.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_active.png")))
 }
@@ -114,7 +114,7 @@ eric = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/eric.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/eric_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/eric_catch.png"))),
-    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/eric_bg.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_active.png")))
 }
@@ -152,15 +152,24 @@ def update_score(score):
     font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     color = black
     text_surf, text_rect = text_objects(str(score), font, color)
-    text_rect.center = (screen_width // 2, 60)
+    text_rect.center = ((screen_width // 2)+150, 60)
     screen.blit(text_surf, text_rect)
 
 # NEW FUNCTION
-def update_points(points):
-    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
+def update_points(points, position):
+    x = 0
+    y = 0
     color = white
+    if position==0:
+        x = (screen_width/4)+50
+        y = screen_height-50
+    else:
+        x = (screen_width/4)+50
+        y = 60
+        color = black
+    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     text_surf, text_rect = text_objects( "Points: " + str(points), font, color)
-    text_rect.center = ((screen_width/4)+50, screen_height-50)
+    text_rect.center = (x, y)
     screen.blit(text_surf, text_rect)
 
 def character(x, y):
@@ -325,7 +334,7 @@ def menu():
                 quitgame()
 
         screen.blit(main_background, (0, 0))
-        update_points(points)
+        update_points(points, 0)
 
         # need to add another button type that is a blank with a price tag
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
@@ -396,6 +405,8 @@ def game():
         catch_y += catch_speed
 
         update_score(score)
+        # NEW ADDITION
+        update_points(points, 1)
 
         for j in range(num_obstacles):
             # only renders whats on screen
