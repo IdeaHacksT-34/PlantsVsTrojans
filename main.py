@@ -15,6 +15,17 @@ hit = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/270326__littlerobots
 pickup = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/347172__davidsraba__coin-pickup-sound.wav")))
 gameover_sound = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/253886__themusicalnomad__negative-beeps.wav")))
 
+# Import previous score (points)
+points_file_path = Path("./points_file.txt")
+points = 0
+if points_file_path.is_file():
+    points_file = open(points_file_path)
+    points_file_list = points_file.readlines()
+    points = int(points_file_list[0])
+
+    points_file.close()
+print(points)
+
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
 hit.set_volume(0.30)
@@ -113,6 +124,12 @@ pygame.display.set_icon(small_icon)
 
 def quitgame():
     pygame.quit()
+
+    # Save points to file
+    points_file = open(points_file_path, "w")
+    points_file.write(str(points))
+    points_file.close()
+
     quit()
 
 # Functions that place that thing on screen at that location
