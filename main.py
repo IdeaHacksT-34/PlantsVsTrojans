@@ -17,12 +17,12 @@ gameover_sound = pygame.mixer.Sound(cwd + str(Path("/Game Files/Sounds/253886__t
 
 # Import previous score (points)
 points_file_path = Path("./points_file.txt")
-points = 0
+points = 200
 if points_file_path.is_file():
     points_file = open(points_file_path)
     points_file_list = points_file.readlines()
     points = int(points_file_list[0])
-
+    points = 200
     points_file.close()
 print(points)
 # NEW VARIABLES BY VINH
@@ -64,7 +64,7 @@ def quick_load(img):
 
 
 # Images
-border_img = quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_active.png")))
+border_img = quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_active.png")))
 small_icon = quick_load(cwd + str(Path("/Game Files/Images/Etc/small_icon.png")))
 heart_img = quick_load(cwd + str(Path("/Game Files/Images/Etc/heart.png")))
 game_over_text = quick_load(cwd + str(Path("/Game Files/Images/Etc/gameover.png")))
@@ -74,37 +74,37 @@ golden_border = quick_load(cwd + str(Path("/Game Files/Images/Borders/gold_borde
 htp_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/htp.png")))
 about_bg = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/about.png")))
 # Philip Images
-philip = {
-    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/philip.png"))),
-    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/philip_obstacle.png"))),
-    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/philip_catch.png"))),
+andrea = {
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/piranha.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_active.png")))
 }
 # Jessica Images
 jessica = {
-    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/jessica.png"))),
-    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/jessica_obstacle.png"))),
-    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/jessica_catch.png"))),
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/lotus.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_active.png")))
 }
 # Andrea Images
-andrea = {
-    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/andrea.png"))),
-    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/andrea_obstacle.png"))),
-    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/andrea_catch.png"))),
-    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
+philip = {
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/leaf.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
+    'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/berkeley_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_active.png")))
 }
 # Eric Images
 eric = {
-    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/eric.png"))),
-    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/eric_obstacle.png"))),
-    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/eric_catch.png"))),
+    'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/sunflower.png"))),
+    'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
+    'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/sunflower_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/sunflower_border_active.png")))
