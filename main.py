@@ -151,7 +151,7 @@ def update_points(points):
     font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
     color = black
     text_surf, text_rect = text_objects( "Points: " + str(points), font, color)
-    text_rect.center = (screen_width-100, screen_height-50)
+    text_rect.center = ((screen_width/4)+50, screen_height-50)
     screen.blit(text_surf, text_rect)
 
 def character(x, y):
@@ -316,6 +316,7 @@ def menu():
                 quitgame()
 
         screen.blit(main_background, (0, 0))
+        update_points(points)
 
         # need to add another button type that is a blank with a price tag
         button(eric['inactive'], eric['active'], 20, 100, set_eric)
@@ -327,9 +328,9 @@ def menu():
             button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
 
         if chosen_char:
-            button(buttons['START'][0], buttons['START'][1], 377, 510, game)
+            button(buttons['START'][0], buttons['START'][1], (screen_width/2)+100, 510, game)
         elif not chosen_char:
-            button(buttons['START'][2], buttons['START'][2], 377, 510)
+            button(buttons['START'][2], buttons['START'][2], (screen_width/2)+100, 510)
 
         pygame.display.update()
         clock.tick(15)
