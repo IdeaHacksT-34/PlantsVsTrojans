@@ -44,8 +44,8 @@ BENCHMARK0 = 10
 BENCHMARK1 = 20
 BENCHMARK2 = 30
 
-LOWERSPEED = 3
-UPPERSPEED = 8
+LOWERSPEED = 2
+UPPERSPEED = 4
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -163,7 +163,7 @@ def update_score(score):
 
 first = True
 def update_plant_data():
-    update_time = 2000
+    update_time = 1000
     global last_timestamp
     global points
     global first
@@ -178,7 +178,7 @@ def update_plant_data():
 
             if(sensor_type == "uv" and sensor_value >= 30):
                 points += 1
-            elif(sensor_type == "soilMoisture" and sensor_value >= 600 and sensor_value < 800):
+            elif(sensor_type == "soilMoisture" and sensor_value >= 500 and sensor_value < 800):
                 points += 1
             else:
                 if(points > 0):
@@ -440,7 +440,7 @@ def game():
     catch_x = random.randrange(0, screen_width)
     catch_y = -catch_height - random.randrange(0, 100)
     # speed of desired catches
-    catch_speed = 7
+    catch_speed = LOWERSPEED + dif
 
     for i in range(num_obstacles):
         obstacle_x.append(random.randrange(0, screen_width))
