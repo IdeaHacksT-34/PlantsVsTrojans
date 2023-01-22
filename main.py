@@ -65,7 +65,7 @@ def quick_load(img):
 
 # Images
 border_img = quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_active.png")))
-small_icon = quick_load(cwd + str(Path("/Game Files/Images/Etc/small_icon.png")))
+sun_icon = quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png")))
 heart_img = quick_load(cwd + str(Path("/Game Files/Images/Etc/heart.png")))
 game_over_text = quick_load(cwd + str(Path("/Game Files/Images/Etc/gameover.png")))
 main_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/char_select.png")))
@@ -73,8 +73,8 @@ main_menu_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds
 golden_border = quick_load(cwd + str(Path("/Game Files/Images/Borders/gold_border.png")))
 htp_background = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/htp.png")))
 about_bg = quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/about.png")))
-# Philip Images
-andrea = {
+# Piranha Plant Images
+piranha = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/piranha.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
@@ -82,8 +82,8 @@ andrea = {
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_active.png")))
 }
-# Jessica Images
-jessica = {
+# Lotus Flower Images
+lotus = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/lotus.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
@@ -91,8 +91,8 @@ jessica = {
     'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_inactive.png"))),
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_active.png")))
 }
-# Andrea Images
-philip = {
+# The Leaf Images
+leaf = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/leaf.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
@@ -101,7 +101,7 @@ philip = {
     'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_active.png")))
 }
 # Eric Images
-eric = {
+sunflower = {
     'char': quick_load(cwd + str(Path("/Game Files/Images/Leads/sunflower.png"))),
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/trojan_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/sun_catch.png"))),
@@ -125,7 +125,7 @@ person = None
 
 # Other Stuff
 pygame.display.set_caption('2020 Boeing HSI Game')
-pygame.display.set_icon(small_icon)
+pygame.display.set_icon(sun_icon)
 
 
 def quitgame():
@@ -202,14 +202,14 @@ def update_variable(char):
 def set_char(char):
     global chosen_char
     chosen_char = True
-    if char == philip:
-        update_variable(philip)
-    elif char == jessica:
-        update_variable(jessica)
-    elif char == eric:
-        update_variable(eric)
-    elif char == andrea:
-        update_variable(andrea)
+    if char == leaf:
+        update_variable(leaf)
+    elif char == lotus:
+        update_variable(lotus)
+    elif char == sunflower:
+        update_variable(sunflower)
+    elif char == piranha:
+        update_variable(piranha)
 
 
 def button(inactive_img, active_img, x, y, action=None):
@@ -228,28 +228,28 @@ def button(inactive_img, active_img, x, y, action=None):
         screen.blit(golden_border, border_coords)
 
 # These functions place the character we control on the field
-def set_philip():
+def set_leaf():
     global border_coords
-    set_char(philip)
-    border_coords = (755, 100)
+    set_char(leaf)
+    border_coords = (755, 150)
 
 
-def set_jessica():
+def set_lotus():
     global border_coords
-    set_char(jessica)
-    border_coords = (265, 100)
+    set_char(lotus)
+    border_coords = (265, 150)
 
 
-def set_andrea():
+def set_piranha():
     global border_coords
-    set_char(andrea)
-    border_coords = (510, 100)
+    set_char(piranha)
+    border_coords = (510, 150)
 
 
-def set_eric():
+def set_sunflower():
     global border_coords
-    set_char(eric)
-    border_coords = (20, 100)
+    set_char(sunflower)
+    border_coords = (20, 150)
 
 # Lose all lives scenario
 def crash():
@@ -328,13 +328,13 @@ def menu():
         update_points(points, 0)
 
         # need to add another button type that is a blank with a price tag
-        button(eric['inactive'], eric['active'], 20, 100, set_eric)
+        button(sunflower['inactive'], sunflower['active'], 20, 150, set_sunflower)
         if points > BENCHMARK0:
-            button(jessica['inactive'], jessica['active'], 265, 100, set_jessica)
+            button(lotus['inactive'], lotus['active'], 265, 150, set_lotus)
         if points > BENCHMARK1:
-            button(philip['inactive'], philip['active'], 755, 100, set_philip)
+            button(leaf['inactive'], leaf['active'], 755, 150, set_leaf)
         if points > BENCHMARK2:
-            button(andrea['inactive'], andrea['active'], 510, 100, set_andrea)
+            button(piranha['inactive'], piranha['active'], 510, 150, set_piranha)
 
         if chosen_char:
             button(buttons['START'][0], buttons['START'][1], (screen_width/2)+100, 510, game)
