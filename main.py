@@ -28,6 +28,9 @@ if points_file_path.is_file():
     points_file.close()
 print(points)
 
+last_timestamp = int(time.time() * 1000)
+print(last_timestamp)
+
 #webserver access setup
 dc = DesiredCapabilities.CHROME
 dc['goog:loggingPrefs'] = { 'browser':'ALL' }
@@ -155,6 +158,42 @@ def update_score(score):
     text_rect.center = ((screen_width // 2)+150, 60)
     screen.blit(text_surf, text_rect)
 
+first = True
+def update_plant_data():
+    update_time = 5000
+    global last_timestamp
+    global points
+    global first
+
+    for e in driver.get_log('browser'):
+        result = e["message"].split('"')[1::2]
+        print(result)
+        timestamp = int(e["timestamp"])
+        if(timestamp > last_timestamp):
+            sensor_type = result[0]
+            sensor_value = float(result[1])
+
+            if(sensor_type == "uv" and sensor_value >= 50):
+                points += 1
+            elif(sensor_type == "soilMoisture" and sensor_value >= 600 and sensor_value < 800):
+                points += 1
+            else:
+                points -= 1
+
+            print(str(timestamp) + "," + sensor_type + "," + str(sensor_value))
+            
+            if(first):
+                first = False
+                continue
+            else:
+                first = True
+                last_timestamp += update_time
+
+
+
+
+
+
 # NEW FUNCTION
 def update_points(points, position):
     x = 0
@@ -163,6 +202,9 @@ def update_points(points, position):
     if position==0:
         x = (screen_width/4)+50
         y = screen_height-50
+
+        # UPDATE POINTS FROM PLANT DATA
+        update_plant_data()
     else:
         x = (screen_width/4)+50
         y = 60
