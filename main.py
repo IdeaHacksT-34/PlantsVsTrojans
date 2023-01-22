@@ -79,8 +79,8 @@ philip = {
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/philip_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/philip_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
-    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_inactive.png"))),
-    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/philip_border_active.png")))
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/piranha_border_active.png")))
 }
 # Jessica Images
 jessica = {
@@ -88,8 +88,8 @@ jessica = {
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/jessica_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/jessica_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
-    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_inactive.png"))),
-    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/jessica_border_active.png")))
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/lotus_border_active.png")))
 }
 # Andrea Images
 andrea = {
@@ -97,8 +97,8 @@ andrea = {
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/andrea_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/andrea_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
-    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_inactive.png"))),
-    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/andrea_border_active.png")))
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/leaf_border_active.png")))
 }
 # Eric Images
 eric = {
@@ -106,8 +106,8 @@ eric = {
     'obstacle': quick_load(cwd + str(Path("/Game Files/Images/Obstacles/eric_obstacle.png"))),
     'catch': quick_load(cwd + str(Path("/Game Files/Images/Catch/eric_catch.png"))),
     'background': quick_load(cwd + str(Path("/Game Files/Images/Backgrounds/royce_bg.png"))),
-    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_inactive.png"))),
-    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/eric_border_active.png")))
+    'inactive': quick_load(cwd + str(Path("/Game Files/Images/Borders/sunflower_border_inactive.png"))),
+    'active': quick_load(cwd + str(Path("/Game Files/Images/Borders/sunflower_border_active.png")))
 }
 # Button Images
 buttons = {
