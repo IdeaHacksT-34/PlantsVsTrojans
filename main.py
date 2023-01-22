@@ -44,8 +44,8 @@ BENCHMARK0 = 50
 BENCHMARK1 = 100
 BENCHMARK2 = 150
 
-LOWERSPEED = 4
-UPPERSPEED = 9
+LOWERSPEED = 3
+UPPERSPEED = 8
 
 # Main Sound
 pygame.mixer.music.set_volume(0.15)
@@ -378,6 +378,9 @@ def menu():
     chosen_char = False
     gameover = True
     person = None
+    font = pygame.font.Font(cwd + str(Path("/Game Files/Fonts/fipps.otf")), 40)
+    color = white
+
     while gameover:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -390,10 +393,24 @@ def menu():
         button(sunflower['inactive'], sunflower['active'], 20, 150, set_sunflower)
         if points > BENCHMARK0:
             button(lotus['inactive'], lotus['active'], 265, 150, set_lotus)
+        else:
+            text_surf, text_rect = text_objects( "Need: " + str(50), font, color)
+            text_rect.center = (265, 150)
+            screen.blit(text_surf, text_rect)
+
         if points > BENCHMARK1:
             button(leaf['inactive'], leaf['active'], 755, 150, set_leaf)
+        else:
+            text_surf, text_rect = text_objects( "Need: " + str(150), font, color)
+            text_rect.center = (755, 150)
+            screen.blit(text_surf, text_rect)
+
         if points > BENCHMARK2:
             button(piranha['inactive'], piranha['active'], 510, 150, set_piranha)
+        else:
+            text_surf, text_rect = text_objects( "Need: " + str(100), font, color)
+            text_rect.center = (510, 150)
+            screen.blit(text_surf, text_rect)
 
         if chosen_char:
             button(buttons['START'][0], buttons['START'][1], (screen_width/2)+100, 510, game)
@@ -498,5 +515,6 @@ def game():
 
         pygame.display.update()
         clock.tick(60)
+
 
 main_menu()
