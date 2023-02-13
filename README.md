@@ -21,6 +21,9 @@ We learned that integrating many independent parts together takes a lot of time 
 ## What's next for Plants vs. Trojans
 We already have a couple of ideas to make the game more engaging and helpful by adding power-ups that are exchangeable by points and plant care tips based on the environment data from our sensors.
 
+## Demo Video
+[![Plants vs Trojans](PvT_titleslide.png)](https://www.youtube.com/watch?v=PblIIO8KxrY "Plants vs Trojans")
+
 # Getting Started
 
 ## Hardware
